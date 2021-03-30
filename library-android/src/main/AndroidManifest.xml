@@ -1,2 +1,2 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.github.jimmymorales.mviandroidtemplate.library.android" />
+    package="dev.jimmymorales.mviandroidtemplate.library.android" />

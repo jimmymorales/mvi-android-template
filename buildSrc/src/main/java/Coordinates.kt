@@ -1,7 +1,7 @@
-const val PUBLISHING_GROUP = "com.github.jimmymorales.mviandroidtemplate"
+const val PUBLISHING_GROUP = "dev.jimmymorales.mviandroidtemplate"
 
 object AppCoordinates {
-    const val APP_ID = "com.github.jimmymorales.mviandroidtemplate.app"
+    const val APP_ID = "dev.jimmymorales.mviandroidtemplate.app"
 
     const val APP_VERSION_NAME = "1.0.0"
     const val APP_VERSION_CODE = 1
