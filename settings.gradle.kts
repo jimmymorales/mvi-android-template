@@ -22,5 +22,6 @@ rootProject.name = ("mviandroidtemplate")
 include(
     "app",
     "library-android",
-    "library-kotlin"
+    "library-kotlin",
+    "mvi"
 )

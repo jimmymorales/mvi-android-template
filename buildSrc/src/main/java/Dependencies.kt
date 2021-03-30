@@ -10,9 +10,13 @@ object Versions {
     const val APPCOMPAT = "1.2.0"
     const val CONSTRAINT_LAYOUT = "2.0.4"
     const val CORE_KTX = "1.3.2"
+    const val COROUTINES = "1.4.3"
     const val ESPRESSO_CORE = "3.3.0"
+    const val FRAGMENT = "1.3.2"
     const val JUNIT = "4.13.2"
     const val KTLINT = "0.40.0"
+    const val TIMBER = "4.7.1"
+    const val VIEWMODEL = "2.3.1"
 }
 
 object BuildPluginsVersion {
@@ -23,8 +27,14 @@ object BuildPluginsVersion {
 
 object SupportLibs {
     const val ANDROIDX_APPCOMPAT = "androidx.appcompat:appcompat:${Versions.APPCOMPAT}"
-    const val ANDROIDX_CONSTRAINT_LAYOUT = "com.android.support.constraint:constraint-layout:${Versions.CONSTRAINT_LAYOUT}"
+    const val ANDROIDX_CONSTRAINT_LAYOUT =
+        "com.android.support.constraint:constraint-layout:${Versions.CONSTRAINT_LAYOUT}"
     const val ANDROIDX_CORE_KTX = "androidx.core:core-ktx:${Versions.CORE_KTX}"
+    const val ANDROIDX_FRAGMENT = "androidx.fragment:fragment-ktx:${Versions.FRAGMENT}"
+    const val ANDROIDX_VIEWMODEL =
+        "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.VIEWMODEL}"
+    const val COROUTINES = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.COROUTINES}"
+    const val TIMBER = "com.jakewharton.timber:timber:${Versions.TIMBER}"
 }
 
 object TestingLib {
