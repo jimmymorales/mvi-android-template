@@ -3,9 +3,9 @@ package dev.jimmymorales.mviandroidtemplate.mvi
 import java.util.concurrent.atomic.AtomicBoolean
 
 /**
- * sed as a wrapper for data that is exposed via a Flow that represents an event.
+ * Used as a wrapper for data that is exposed via a Flow that represents an event.
  */
-class Event<out T>(private val content: T) {
+class ConsumableEvent<out T>(private val content: T) {
     private val hasBeenHandled = AtomicBoolean(false)
 
     /**

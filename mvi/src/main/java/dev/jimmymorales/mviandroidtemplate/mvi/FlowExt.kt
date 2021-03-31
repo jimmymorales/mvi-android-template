@@ -5,6 +5,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
@@ -60,6 +61,7 @@ import kotlin.coroutines.resume
  * @return [Flow] that only emits items from `this` upstream flow when the [fragment]'s view
  * lifecycle is at least in the [minActiveState].
  */
+@ExperimentalCoroutinesApi
 internal fun <T> Flow<T>.flowWithLifecycle(
     fragment: Fragment,
     minActiveState: Lifecycle.State = Lifecycle.State.STARTED

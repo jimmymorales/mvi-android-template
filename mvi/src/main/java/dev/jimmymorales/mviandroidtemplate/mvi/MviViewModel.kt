@@ -2,6 +2,7 @@ package dev.jimmymorales.mviandroidtemplate.mvi
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -21,18 +22,19 @@ interface ViewIntent
 
 interface VMAction
 
-interface VMEvent
+interface Event
 
+@ExperimentalCoroutinesApi
 abstract class MviViewModel<
     STATE : ViewState,
     INTENT : ViewIntent,
     ACTION : VMAction,
-    EVENT : VMEvent
+    EVENT : Event
     >(
     initialState: STATE,
 ) : ViewModel() {
 
-    private val internalEvents = Channel<Event<EVENT>>(Channel.BUFFERED)
+    private val internalEvents = Channel<ConsumableEvent<EVENT>>(Channel.BUFFERED)
     val events: Flow<EVENT> = internalEvents.receiveAsFlow()
         .mapNotNull { event -> event.getContentIfNotHandled() }
 
@@ -69,7 +71,7 @@ abstract class MviViewModel<
     }
 
     protected suspend fun triggerEvent(event: EVENT) {
-        internalEvents.send(Event(event))
+        internalEvents.send(ConsumableEvent(event))
     }
 
     protected suspend fun onAction(action: ACTION) {

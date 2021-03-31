@@ -9,17 +9,19 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.viewbinding.ViewBinding
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import timber.log.Timber
 
+@ExperimentalCoroutinesApi
 abstract class MviViewBindingFragment<
-    VB : ViewBinding,
-    ViewState,
-    ViewIntent,
-    MVAction,
-    Event,
-    VM : MviViewModel<ViewState, ViewIntent, MVAction, Event>>(
+        VB : ViewBinding,
+        STATE : ViewState,
+        INTENT : ViewIntent,
+        ACTION : VMAction,
+        EVENT : Event,
+        VM : MviViewModel<STATE, INTENT, ACTION, EVENT>>(
     @LayoutRes contentLayoutId: Int
 ) : Fragment(contentLayoutId) {
 
@@ -41,14 +43,14 @@ abstract class MviViewBindingFragment<
     }
 
     @CallSuper
-    protected open fun handleEvent(event: Event) {
+    protected open fun handleEvent(event: EVENT) {
         Timber.v("Handling event from UI -> $event")
     }
 
     protected abstract fun bindView(view: View): VB
-    protected abstract fun render(binding: VB, viewState: ViewState)
+    protected abstract fun render(binding: VB, viewState: STATE)
     protected abstract fun initUI(binding: VB)
-    protected fun dispatchViewIntentWhenResumed(viewIntent: ViewIntent) {
+    protected fun dispatchViewIntentWhenResumed(viewIntent: INTENT) {
         viewLifecycleOwner.lifecycleScope.launchWhenResumed {
             viewModel.onIntent(viewIntent)
         }
