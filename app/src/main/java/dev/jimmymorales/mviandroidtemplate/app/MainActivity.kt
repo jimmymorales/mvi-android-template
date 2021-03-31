@@ -3,9 +3,9 @@ package dev.jimmymorales.mviandroidtemplate.app
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.github.jimmymorales.mviandroidtemplate.app.databinding.ActivityMainBinding
-import com.github.jimmymorales.mviandroidtemplate.library.FactorialCalculator
-import com.github.jimmymorales.mviandroidtemplate.library.android.NotificationUtil
+import dev.jimmymorales.mviandroidtemplate.app.databinding.ActivityMainBinding
+import dev.jimmymorales.mviandroidtemplate.library.FactorialCalculator
+import dev.jimmymorales.mviandroidtemplate.library.android.NotificationUtil
 
 class MainActivity : AppCompatActivity() {
 
