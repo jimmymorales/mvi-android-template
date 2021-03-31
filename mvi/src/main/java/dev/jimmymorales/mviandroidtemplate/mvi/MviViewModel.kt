@@ -15,20 +15,33 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.scan
 import timber.log.Timber
 
-abstract class MviViewModel<ViewState, ViewIntent, VMAction, VMEvent>(
-    initialState: ViewState,
+interface ViewState
+
+interface ViewIntent
+
+interface VMAction
+
+interface VMEvent
+
+abstract class MviViewModel<
+    STATE : ViewState,
+    INTENT : ViewIntent,
+    ACTION : VMAction,
+    EVENT : VMEvent
+    >(
+    initialState: STATE,
 ) : ViewModel() {
 
-    private val internalEvents = Channel<Event<VMEvent>>(Channel.BUFFERED)
-    val events: Flow<VMEvent> = internalEvents.receiveAsFlow()
+    private val internalEvents = Channel<Event<EVENT>>(Channel.BUFFERED)
+    val events: Flow<EVENT> = internalEvents.receiveAsFlow()
         .mapNotNull { event -> event.getContentIfNotHandled() }
 
     private val internalState = MutableStateFlow(initialState)
-    val state: StateFlow<ViewState> = internalState.asStateFlow()
+    val state: StateFlow<STATE> = internalState.asStateFlow()
 
-    private val viewIntents = Channel<ViewIntent>(capacity = Channel.UNLIMITED)
+    private val viewIntents = Channel<INTENT>(capacity = Channel.UNLIMITED)
 
-    private val viewModelActions = Channel<VMAction>(capacity = Channel.UNLIMITED)
+    private val viewModelActions = Channel<ACTION>(capacity = Channel.UNLIMITED)
 
     init {
         viewIntents.consumeAsFlow()
@@ -51,19 +64,19 @@ abstract class MviViewModel<ViewState, ViewIntent, VMAction, VMEvent>(
             .launchIn(viewModelScope)
     }
 
-    suspend fun onIntent(intent: ViewIntent) {
+    suspend fun onIntent(intent: INTENT) {
         viewIntents.send(intent)
     }
 
-    protected suspend fun triggerEvent(event: VMEvent) {
+    protected suspend fun triggerEvent(event: EVENT) {
         internalEvents.send(Event(event))
     }
 
-    protected suspend fun onAction(action: VMAction) {
+    protected suspend fun onAction(action: ACTION) {
         viewModelActions.send(action)
     }
 
-    protected abstract suspend fun reduce(state: ViewState, action: VMAction): ViewState
+    protected abstract suspend fun reduce(state: STATE, action: ACTION): STATE
 
-    protected abstract suspend fun handleIntent(intent: ViewIntent)
+    protected abstract suspend fun handleIntent(intent: INTENT)
 }
