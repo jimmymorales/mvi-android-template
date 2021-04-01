@@ -16,20 +16,20 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.scan
 import timber.log.Timber
 
-interface ViewState
+interface UIState
 
 interface ViewIntent
 
 interface VMAction
 
-interface Event
+interface UIEvent
 
 @ExperimentalCoroutinesApi
 abstract class MviViewModel<
-    STATE : ViewState,
+    STATE : UIState,
     INTENT : ViewIntent,
     ACTION : VMAction,
-    EVENT : Event
+    EVENT : UIEvent
     >(
     initialState: STATE,
 ) : ViewModel() {
@@ -70,15 +70,15 @@ abstract class MviViewModel<
         viewIntents.send(intent)
     }
 
-    protected suspend fun triggerEvent(event: EVENT) {
-        internalEvents.send(ConsumableEvent(event))
-    }
-
     protected suspend fun onAction(action: ACTION) {
         viewModelActions.send(action)
     }
 
-    protected abstract suspend fun reduce(state: STATE, action: ACTION): STATE
+    protected suspend fun triggerEvent(event: EVENT) {
+        internalEvents.send(ConsumableEvent(event))
+    }
 
     protected abstract suspend fun handleIntent(intent: INTENT)
+
+    protected abstract suspend fun reduce(state: STATE, action: ACTION): STATE
 }

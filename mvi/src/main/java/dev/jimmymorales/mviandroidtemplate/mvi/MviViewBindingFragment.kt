@@ -17,10 +17,10 @@ import timber.log.Timber
 @ExperimentalCoroutinesApi
 abstract class MviViewBindingFragment<
         VB : ViewBinding,
-        STATE : ViewState,
+        STATE : UIState,
         INTENT : ViewIntent,
         ACTION : VMAction,
-        EVENT : Event,
+        EVENT : UIEvent,
         VM : MviViewModel<STATE, INTENT, ACTION, EVENT>>(
     @LayoutRes contentLayoutId: Int
 ) : Fragment(contentLayoutId) {
@@ -48,8 +48,8 @@ abstract class MviViewBindingFragment<
     }
 
     protected abstract fun bindView(view: View): VB
-    protected abstract fun render(binding: VB, viewState: STATE)
     protected abstract fun initUI(binding: VB)
+    protected abstract fun render(binding: VB, viewState: STATE)
     protected fun dispatchViewIntentWhenResumed(viewIntent: INTENT) {
         viewLifecycleOwner.lifecycleScope.launchWhenResumed {
             viewModel.onIntent(viewIntent)
