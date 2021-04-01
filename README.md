@@ -1,4 +1,4 @@
-# mviandroidtemplate
+# MVI Android template
 
 ![Build](https://github.com/jimmymorales/mvi-android-template/workflows/Pre%20Merge%20Checks/badge.svg)
 
