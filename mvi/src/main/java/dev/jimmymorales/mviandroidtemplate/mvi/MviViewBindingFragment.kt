@@ -2,7 +2,6 @@ package dev.jimmymorales.mviandroidtemplate.mvi
 
 import android.os.Bundle
 import android.view.View
-import androidx.annotation.CallSuper
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.flowWithLifecycle
@@ -37,13 +36,14 @@ abstract class MviViewBindingFragment<
 
         viewModel.events
             .flowWithLifecycle(viewLifecycleOwner.lifecycle)
-            .onEach { event -> handleEvent(event) }
+            .onEach { event ->
+                Timber.v("Handling event from UI -> $event")
+                handleEvent(event)
+            }
             .launchIn(viewLifecycleOwner.lifecycleScope)
     }
 
-    @CallSuper
     protected open fun handleEvent(event: EVENT) {
-        Timber.v("Handling event from UI -> $event")
     }
 
     protected abstract fun bindView(view: View): VB
