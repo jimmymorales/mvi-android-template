@@ -1,4 +1,4 @@
-package dev.jimmymorales.mviandroidtemplate.mvi
+package dev.jimmymorales.mviandroidtemplate.mvi.events
 
 import java.util.concurrent.atomic.AtomicBoolean
 
