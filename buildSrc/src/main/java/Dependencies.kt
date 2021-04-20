@@ -18,6 +18,7 @@ object Versions {
     const val KTLINT = "0.40.0"
     const val LIFECYCLE = "2.4.0-alpha01"
     const val TIMBER = "4.7.1"
+    const val TURBINE = "0.4.1"
     const val VIEWMODEL = "2.3.1"
 }
 
@@ -45,6 +46,7 @@ object TestingLib {
     const val JUNIT = "junit:junit:${Versions.JUNIT}"
     const val KOTEST_ASSERTIONS_CORE = "io.kotest:kotest-assertions-core:${Versions.KOTEST}"
     const val KOTEST_PROPERTY_TESTING = "io.kotest:kotest-property:${Versions.KOTEST}"
+    const val TURBINE = "app.cash.turbine:turbine:${Versions.TURBINE}"
 
 }
 

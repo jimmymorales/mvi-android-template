@@ -3,7 +3,7 @@ package dev.jimmymorales.mviandroidtemplate.mvi
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dev.jimmymorales.mviandroidtemplate.mvi.events.ViewEventProducer
-import dev.jimmymorales.mviandroidtemplate.mvi.events.ViewEventProducerImpl
+import dev.jimmymorales.mviandroidtemplate.mvi.events.ConsumableEventProducerImpl
 import dev.jimmymorales.mviandroidtemplate.mvi.events.ViewEventFlow
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -31,7 +31,7 @@ abstract class MviViewModel<
     EVENT : UIEvent
     >(
     initialState: STATE,
-    private val viewEventProducer: ViewEventProducer<EVENT> = ViewEventProducerImpl()
+    private val viewEventProducer: ViewEventProducer<EVENT> = ConsumableEventProducerImpl()
 ) : ViewModel(), ViewEventFlow<EVENT> by viewEventProducer {
 
     private val internalState = MutableStateFlow(initialState)
