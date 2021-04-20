@@ -1,6 +1,5 @@
 package dev.jimmymorales.mviandroidtemplate.mvi
 
-
 import android.os.Bundle
 import android.view.View
 import androidx.annotation.CallSuper
@@ -16,12 +15,12 @@ import timber.log.Timber
 
 @ExperimentalCoroutinesApi
 abstract class MviViewBindingFragment<
-        VB : ViewBinding,
-        STATE : UIState,
-        INTENT : ViewIntent,
-        ACTION : ReduceAction,
-        EVENT : UIEvent,
-        VM : MviViewModel<STATE, INTENT, ACTION, EVENT>>(
+    VB : ViewBinding,
+    STATE : UIState,
+    INTENT : ViewIntent,
+    ACTION : ReduceAction,
+    EVENT : UIEvent,
+    VM : MviViewModel<STATE, INTENT, ACTION, EVENT>>(
     @LayoutRes contentLayoutId: Int
 ) : Fragment(contentLayoutId) {
 

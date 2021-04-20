@@ -85,4 +85,3 @@ abstract class MviViewModel<
 }
 
 private const val FLOW_BUFFER_CAPACITY = 64
-
