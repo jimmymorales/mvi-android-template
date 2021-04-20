@@ -20,7 +20,7 @@ interface UIState
 
 interface ViewIntent
 
-interface VMAction
+interface ReduceAction
 
 interface UIEvent
 
@@ -28,7 +28,7 @@ interface UIEvent
 abstract class MviViewModel<
     STATE : UIState,
     INTENT : ViewIntent,
-    ACTION : VMAction,
+    ACTION : ReduceAction,
     EVENT : UIEvent
     >(
     initialState: STATE,
@@ -43,7 +43,7 @@ abstract class MviViewModel<
 
     private val viewIntents = Channel<INTENT>(capacity = Channel.UNLIMITED)
 
-    private val viewModelActions = Channel<ACTION>(capacity = Channel.UNLIMITED)
+    private val reduceActions = Channel<ACTION>(capacity = Channel.UNLIMITED)
 
     init {
         viewIntents.consumeAsFlow()
@@ -53,7 +53,7 @@ abstract class MviViewModel<
             }
             .launchIn(viewModelScope)
 
-        viewModelActions.consumeAsFlow()
+        reduceActions.consumeAsFlow()
             .scan(initialState) { state, action ->
                 Timber.v("Reducing action = $action")
                 Timber.v("Old state = $state")
@@ -71,7 +71,7 @@ abstract class MviViewModel<
     }
 
     protected suspend fun onAction(action: ACTION) {
-        viewModelActions.send(action)
+        reduceActions.send(action)
     }
 
     protected suspend fun triggerEvent(event: EVENT) {

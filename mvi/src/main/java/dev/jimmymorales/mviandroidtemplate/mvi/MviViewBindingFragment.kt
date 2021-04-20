@@ -19,7 +19,7 @@ abstract class MviViewBindingFragment<
         VB : ViewBinding,
         STATE : UIState,
         INTENT : ViewIntent,
-        ACTION : VMAction,
+        ACTION : ReduceAction,
         EVENT : UIEvent,
         VM : MviViewModel<STATE, INTENT, ACTION, EVENT>>(
     @LayoutRes contentLayoutId: Int
