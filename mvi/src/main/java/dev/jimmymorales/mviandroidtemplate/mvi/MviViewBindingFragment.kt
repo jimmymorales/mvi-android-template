@@ -1,12 +1,11 @@
 package dev.jimmymorales.mviandroidtemplate.mvi
 
-
 import android.os.Bundle
 import android.view.View
 import androidx.annotation.CallSuper
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.viewbinding.ViewBinding
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -32,12 +31,12 @@ abstract class MviViewBindingFragment<
         initUI(binding)
 
         viewModel.state
-            .flowWithLifecycle(fragment = this, Lifecycle.State.STARTED)
+            .flowWithLifecycle(viewLifecycleOwner.lifecycle)
             .onEach { state -> render(binding, state) }
             .launchIn(viewLifecycleOwner.lifecycleScope)
 
         viewModel.events
-            .flowWithLifecycle(fragment = this, Lifecycle.State.STARTED)
+            .flowWithLifecycle(viewLifecycleOwner.lifecycle)
             .onEach { event -> handleEvent(event) }
             .launchIn(viewLifecycleOwner.lifecycleScope)
     }
