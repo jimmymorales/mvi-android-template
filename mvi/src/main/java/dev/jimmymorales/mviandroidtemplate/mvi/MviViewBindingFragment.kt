@@ -37,13 +37,14 @@ abstract class MviViewBindingFragment<
 
         viewModel.events
             .flowWithLifecycle(fragment = this, Lifecycle.State.STARTED)
-            .onEach { event -> handleEvent(event) }
+            .onEach { event ->
+                Timber.v("Handling event from UI -> $event")
+                handleEvent(event)
+            }
             .launchIn(viewLifecycleOwner.lifecycleScope)
     }
 
-    @CallSuper
     protected open fun handleEvent(event: EVENT) {
-        Timber.v("Handling event from UI -> $event")
     }
 
     protected abstract fun bindView(view: View): VB
