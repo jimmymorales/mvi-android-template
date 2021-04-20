@@ -2,14 +2,15 @@ package dev.jimmymorales.mviandroidtemplate.mvi
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dev.jimmymorales.mviandroidtemplate.mvi.events.ViewEventProducer
+import dev.jimmymorales.mviandroidtemplate.mvi.events.ViewEventProducerImpl
+import dev.jimmymorales.mviandroidtemplate.mvi.events.ViewEventFlow
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.scan
 import timber.log.Timber
@@ -30,12 +31,8 @@ abstract class MviViewModel<
     EVENT : UIEvent
     >(
     initialState: STATE,
-) : ViewModel() {
-
-    private val internalEvents = MutableSharedFlow<ConsumableEvent<EVENT>>(
-        extraBufferCapacity = FLOW_BUFFER_CAPACITY
-    )
-    val events: Flow<EVENT> = internalEvents.mapNotNull { event -> event.getContentIfNotHandled() }
+    private val viewEventProducer: ViewEventProducer<EVENT> = ViewEventProducerImpl()
+) : ViewModel(), ViewEventFlow<EVENT> by viewEventProducer {
 
     private val internalState = MutableStateFlow(initialState)
     val state: StateFlow<STATE> = internalState.asStateFlow()
@@ -76,7 +73,7 @@ abstract class MviViewModel<
     }
 
     protected suspend fun triggerEvent(event: EVENT) {
-        internalEvents.emit(ConsumableEvent(event))
+        viewEventProducer.triggerEvent(event)
     }
 
     protected abstract suspend fun handleIntent(intent: INTENT)
