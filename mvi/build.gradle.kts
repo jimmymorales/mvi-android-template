@@ -61,6 +61,7 @@ dependencies {
     testImplementation(TestingLib.JUNIT)
     testImplementation(TestingLib.KOTEST_ASSERTIONS_CORE)
     testImplementation(TestingLib.KOTEST_PROPERTY_TESTING)
+    testImplementation(TestingLib.TURBINE)
 
     androidTestImplementation(AndroidTestingLib.ANDROIDX_TEST_RUNNER)
     androidTestImplementation(AndroidTestingLib.ANDROIDX_TEST_EXT_JUNIT)

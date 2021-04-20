@@ -13,7 +13,7 @@ interface ViewEventProducer<EVENT : UIEvent> : ViewEventFlow<EVENT> {
  * Default implementation of a [ViewEventProducer]. It will make sure the events propagated only
  * once to the subscribers.
  */
-internal class ViewEventProducerImpl<EVENT : UIEvent> : ViewEventProducer<EVENT> {
+internal class ConsumableEventProducerImpl<EVENT : UIEvent> : ViewEventProducer<EVENT> {
 
     private val internalEvents = MutableSharedFlow<ConsumableEvent<EVENT>>(extraBufferCapacity = 64)
 
