@@ -58,6 +58,7 @@ dependencies {
 
     implementation(SupportLibs.TIMBER)
 
+    testImplementation(TestingLib.COROUTINES_TEST)
     testImplementation(TestingLib.JUNIT)
     testImplementation(TestingLib.KOTEST_ASSERTIONS_CORE)
     testImplementation(TestingLib.KOTEST_PROPERTY_TESTING)
