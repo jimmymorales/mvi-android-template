@@ -14,6 +14,7 @@ object Versions {
     const val ESPRESSO_CORE = "3.3.0"
     const val FRAGMENT = "1.3.2"
     const val JUNIT = "4.13.2"
+    const val KOTEST = "4.4.3"
     const val KTLINT = "0.40.0"
     const val LIFECYCLE = "2.4.0-alpha01"
     const val TIMBER = "4.7.1"
@@ -42,6 +43,9 @@ object SupportLibs {
 
 object TestingLib {
     const val JUNIT = "junit:junit:${Versions.JUNIT}"
+    const val KOTEST_ASSERTIONS_CORE = "io.kotest:kotest-assertions-core:${Versions.KOTEST}"
+    const val KOTEST_PROPERTY_TESTING = "io.kotest:kotest-property:${Versions.KOTEST}"
+
 }
 
 object AndroidTestingLib {
