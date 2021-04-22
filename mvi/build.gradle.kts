@@ -52,6 +52,7 @@ dependencies {
     implementation(SupportLibs.ANDROIDX_APPCOMPAT)
     implementation(SupportLibs.ANDROIDX_CORE_KTX)
     implementation(SupportLibs.ANDROIDX_FRAGMENT)
+    implementation(SupportLibs.ANDROIDX_LIFECYCLE_RUNTIME)
     implementation(SupportLibs.ANDROIDX_VIEWMODEL)
 
     implementation(SupportLibs.COROUTINES)
