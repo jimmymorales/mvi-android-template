@@ -18,6 +18,9 @@ object Versions {
     const val KOTEST = "4.4.3"
     const val KTLINT = "0.40.0"
     const val LIFECYCLE = "2.4.0-alpha01"
+    const val LOGGING_INTERCEPTOR = "3.9.0"
+    const val MOSHI = "1.12.0"
+    const val RETROFIT = "2.9.0"
     const val TIMBER = "4.7.1"
     const val TURBINE = "0.4.1"
     const val VIEWMODEL = "2.3.1"
@@ -40,9 +43,15 @@ object SupportLibs {
     const val ANDROIDX_VIEWMODEL =
         "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.VIEWMODEL}"
     const val COROUTINES = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.COROUTINES}"
-    const val TIMBER = "com.jakewharton.timber:timber:${Versions.TIMBER}"
+    const val MOSHI = "com.squareup.moshi:moshi:${Versions.MOSHI}"
+    const val MOSHI_KOTLIN_CODEGEN = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.MOSHI}"
+    const val RETROFIT = "com.squareup.retrofit2:retrofit:${Versions.RETROFIT}"
+    const val RETROFIT_LOGGING_INTERCEPTOR = "com.squareup.okhttp3:logging-interceptor:${Versions.LOGGING_INTERCEPTOR}"
+    const val RETROFIT_MOSHI_ADAPTER = "com.squareup.retrofit2:converter-moshi:${Versions.RETROFIT}"
     const val HILT = "com.google.dagger:hilt-android:${Versions.HILT}"
+    const val HILT_CORE = "com.google.dagger:hilt-core:${Versions.HILT}"
     const val HILT_COMPILER = "com.google.dagger:hilt-compiler:${Versions.HILT}"
+    const val TIMBER = "com.jakewharton.timber:timber:${Versions.TIMBER}"
 }
 
 object TestingLib {

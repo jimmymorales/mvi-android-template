@@ -1,0 +1,3 @@
+package dev.jimmymorales.mviandroidtemplate.library
+
+interface RickAndMortyApi
