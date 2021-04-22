@@ -13,6 +13,7 @@ object Versions {
     const val COROUTINES = "1.4.3"
     const val ESPRESSO_CORE = "3.3.0"
     const val FRAGMENT = "1.3.2"
+    const val HILT = "2.33-beta"
     const val JUNIT = "4.13.2"
     const val KOTEST = "4.4.3"
     const val KTLINT = "0.40.0"
@@ -40,6 +41,8 @@ object SupportLibs {
         "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.VIEWMODEL}"
     const val COROUTINES = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.COROUTINES}"
     const val TIMBER = "com.jakewharton.timber:timber:${Versions.TIMBER}"
+    const val HILT = "com.google.dagger:hilt-android:${Versions.HILT}"
+    const val HILT_COMPILER = "com.google.dagger:hilt-compiler:${Versions.HILT}"
 }
 
 object TestingLib {

@@ -3,10 +3,12 @@ package dev.jimmymorales.mviandroidtemplate.app
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import dagger.hilt.android.AndroidEntryPoint
 import dev.jimmymorales.mviandroidtemplate.app.databinding.ActivityMainBinding
 import dev.jimmymorales.mviandroidtemplate.library.FactorialCalculator
 import dev.jimmymorales.mviandroidtemplate.library.android.NotificationUtil
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private val notificationUtil: NotificationUtil by lazy { NotificationUtil(this) }
