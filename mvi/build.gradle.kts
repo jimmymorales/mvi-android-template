@@ -42,6 +42,12 @@ android {
     }
 }
 
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+}
+
 dependencies {
     implementation(SupportLibs.ANDROIDX_APPCOMPAT)
     implementation(SupportLibs.ANDROIDX_CORE_KTX)
@@ -53,7 +59,11 @@ dependencies {
 
     implementation(SupportLibs.TIMBER)
 
+    testImplementation(TestingLib.COROUTINES_TEST)
     testImplementation(TestingLib.JUNIT)
+    testImplementation(TestingLib.KOTEST_ASSERTIONS_CORE)
+    testImplementation(TestingLib.KOTEST_PROPERTY_TESTING)
+    testImplementation(TestingLib.TURBINE)
 
     androidTestImplementation(AndroidTestingLib.ANDROIDX_TEST_RUNNER)
     androidTestImplementation(AndroidTestingLib.ANDROIDX_TEST_EXT_JUNIT)
