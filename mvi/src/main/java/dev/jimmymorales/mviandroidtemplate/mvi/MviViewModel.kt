@@ -2,9 +2,9 @@ package dev.jimmymorales.mviandroidtemplate.mvi
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import dev.jimmymorales.mviandroidtemplate.mvi.events.ViewEventProducer
 import dev.jimmymorales.mviandroidtemplate.mvi.events.ConsumableEventProducerImpl
 import dev.jimmymorales.mviandroidtemplate.mvi.events.ViewEventFlow
+import dev.jimmymorales.mviandroidtemplate.mvi.events.ViewEventProducer
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
