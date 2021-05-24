@@ -21,11 +21,6 @@ android {
         consumerProguardFiles("consumer-rules.pro")
     }
 
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
@@ -43,8 +38,6 @@ android {
 }
 
 dependencies {
-    implementation(kotlin("stdlib-jdk7"))
-
     implementation(SupportLibs.ANDROIDX_APPCOMPAT)
     implementation(SupportLibs.ANDROIDX_CORE_KTX)
 

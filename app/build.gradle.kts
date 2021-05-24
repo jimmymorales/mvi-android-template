@@ -18,10 +18,6 @@ android {
     buildFeatures {
         viewBinding = true
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
@@ -52,8 +48,6 @@ android {
 }
 
 dependencies {
-    implementation(kotlin("stdlib-jdk7"))
-
     implementation(project(":library-android"))
     implementation(project(":library-kotlin"))
 

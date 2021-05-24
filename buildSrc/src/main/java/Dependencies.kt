@@ -7,23 +7,22 @@ object Sdk {
 object Versions {
     const val ANDROIDX_TEST_EXT = "1.1.2"
     const val ANDROIDX_TEST = "1.3.0"
-    const val APPCOMPAT = "1.2.0"
+    const val APPCOMPAT = "1.3.0"
     const val CONSTRAINT_LAYOUT = "2.0.4"
-    const val CORE_KTX = "1.3.2"
-    const val COROUTINES = "1.4.3"
+    const val CORE_KTX = "1.5.0"
+    const val COROUTINES = "1.5.0"
     const val ESPRESSO_CORE = "3.3.0"
-    const val FRAGMENT = "1.3.2"
+    const val FRAGMENT = "1.3.4"
     const val JUNIT = "4.13.2"
-    const val KOTEST = "4.4.3"
-    const val KTLINT = "0.40.0"
+    const val KOTEST = "4.6.0"
+    const val KTLINT = "0.41.0"
     const val LIFECYCLE = "2.4.0-alpha01"
     const val TIMBER = "4.7.1"
-    const val TURBINE = "0.4.1"
-    const val VIEWMODEL = "2.3.1"
+    const val TURBINE = "0.5.1"
 }
 
 object BuildPluginsVersion {
-    const val DETEKT = "1.16.0"
+    const val DETEKT = "1.17.1"
     const val KTLINT = "10.0.0"
     const val VERSIONS_PLUGIN = "0.38.0"
 }
@@ -37,7 +36,7 @@ object SupportLibs {
     const val ANDROIDX_LIFECYCLE_RUNTIME =
         "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.LIFECYCLE}"
     const val ANDROIDX_VIEWMODEL =
-        "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.VIEWMODEL}"
+        "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.LIFECYCLE}"
     const val COROUTINES = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.COROUTINES}"
     const val TIMBER = "com.jakewharton.timber:timber:${Versions.TIMBER}"
 }
