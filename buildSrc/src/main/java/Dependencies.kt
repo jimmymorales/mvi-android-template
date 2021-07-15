@@ -5,7 +5,7 @@ object Sdk {
 }
 
 object Versions {
-    const val ANDROIDX_TEST_EXT = "1.1.2"
+    const val ANDROIDX_TEST_EXT = "1.1.3"
     const val ANDROIDX_TEST = "1.4.0"
     const val APPCOMPAT = "1.3.0"
     const val CONSTRAINT_LAYOUT = "2.0.4"
