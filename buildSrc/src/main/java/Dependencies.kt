@@ -16,7 +16,7 @@ object Versions {
     const val JUNIT = "4.13.2"
     const val KOTEST = "4.6.0"
     const val KTLINT = "0.41.0"
-    const val LIFECYCLE = "2.4.0-alpha01"
+    const val LIFECYCLE = "2.4.0-alpha02"
     const val TIMBER = "4.7.1"
     const val TURBINE = "0.5.1"
 }
