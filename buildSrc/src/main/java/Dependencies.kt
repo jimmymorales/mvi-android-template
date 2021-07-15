@@ -30,7 +30,7 @@ object BuildPluginsVersion {
 object SupportLibs {
     const val ANDROIDX_APPCOMPAT = "androidx.appcompat:appcompat:${Versions.APPCOMPAT}"
     const val ANDROIDX_CONSTRAINT_LAYOUT =
-        "com.android.support.constraint:constraint-layout:${Versions.CONSTRAINT_LAYOUT}"
+        "androidx.constraintlayout:constraintlayout:${Versions.CONSTRAINT_LAYOUT}"
     const val ANDROIDX_CORE_KTX = "androidx.core:core-ktx:${Versions.CORE_KTX}"
     const val ANDROIDX_FRAGMENT = "androidx.fragment:fragment-ktx:${Versions.FRAGMENT}"
     const val ANDROIDX_LIFECYCLE_RUNTIME =
@@ -48,7 +48,6 @@ object TestingLib {
     const val KOTEST_ASSERTIONS_CORE = "io.kotest:kotest-assertions-core:${Versions.KOTEST}"
     const val KOTEST_PROPERTY_TESTING = "io.kotest:kotest-property:${Versions.KOTEST}"
     const val TURBINE = "app.cash.turbine:turbine:${Versions.TURBINE}"
-
 }
 
 object AndroidTestingLib {
