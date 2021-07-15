@@ -12,7 +12,7 @@ object Versions {
     const val CORE_KTX = "1.6.0"
     const val COROUTINES = "1.5.0"
     const val ESPRESSO_CORE = "3.3.0"
-    const val FRAGMENT = "1.3.4"
+    const val FRAGMENT = "1.3.5"
     const val JUNIT = "4.13.2"
     const val KOTEST = "4.6.0"
     const val KTLINT = "0.41.0"
