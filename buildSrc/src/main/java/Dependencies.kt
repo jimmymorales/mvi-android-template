@@ -14,7 +14,7 @@ object Versions {
     const val ESPRESSO_CORE = "3.4.0"
     const val FRAGMENT = "1.3.5"
     const val JUNIT = "4.13.2"
-    const val KOTEST = "4.6.0"
+    const val KOTEST = "4.6.1"
     const val KTLINT = "0.41.0"
     const val LIFECYCLE = "2.4.0-alpha02"
     const val TIMBER = "4.7.1"
